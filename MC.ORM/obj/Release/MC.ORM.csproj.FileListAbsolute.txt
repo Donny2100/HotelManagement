@@ -1,0 +1,10 @@
+E:\projects\代码\牛彩论坛\NIU.Forum\MC.ORM\bin\Release\MC.ORM.dll
+E:\projects\代码\牛彩论坛\NIU.Forum\MC.ORM\bin\Release\MC.ORM.pdb
+E:\projects\代码\牛彩论坛\NIU.Forum\MC.ORM\obj\Release\MC.ORM.csprojResolveAssemblyReference.cache
+E:\projects\代码\牛彩论坛\NIU.Forum\MC.ORM\obj\Release\MC.ORM.dll
+E:\projects\代码\牛彩论坛\NIU.Forum\MC.ORM\obj\Release\MC.ORM.pdb
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\bin\Release\MC.ORM.dll
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\bin\Release\MC.ORM.pdb
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\obj\Release\MC.ORM.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\obj\Release\MC.ORM.dll
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\obj\Release\MC.ORM.pdb

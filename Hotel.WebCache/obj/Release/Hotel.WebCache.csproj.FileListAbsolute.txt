@@ -1,0 +1,5 @@
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\bin\Release\Hotel.WebCache.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\bin\Release\Hotel.WebCache.pdb
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Release\Hotel.WebCache.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Release\Hotel.WebCache.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Release\Hotel.WebCache.pdb

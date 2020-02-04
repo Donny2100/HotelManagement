@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CC83D72B-8DF3-4B1D-957F-7A85142E29FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hotel.Model</RootNamespace>
+    <AssemblyName>Hotel.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgreeCompany.cs" />
+    <Compile Include="AgreeCompanyContact.cs" />
+    <Compile Include="AgreeCompanyFjxy.cs" />
+    <Compile Include="AgreeCompanyKhxy.cs" />
+    <Compile Include="AgreeCompCommisionRecord.cs" />
+    <Compile Include="AgreeCompStkRecord.cs" />
+    <Compile Include="AgreeCompWjsmxHchDetail.cs" />
+    <Compile Include="AgreeCompWjsmxJsDetail.cs" />
+    <Compile Include="AgreeCompWjsmxRecord.cs" />
+    <Compile Include="AgreeCompWjsmxRecordDetail.cs" />
+    <Compile Include="AgreeCompZzRecord.cs" />
+    <Compile Include="AlarmClock.cs" />
+    <Compile Include="Area.cs" />
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="BillSet.cs" />
+    <Compile Include="BuildFloor.cs" />
+    <Compile Include="DisposableMaterialRoom.cs" />
+    <Compile Include="DisposableMaterialSetting.cs" />
+    <Compile Include="DisposableMaterial.cs" />
+    <Compile Include="Enum\DocumentTypeEnum.cs" />
+    <Compile Include="GuestGoods.cs" />
+    <Compile Include="Inventory\Commodity.cs" />
+    <Compile Include="Inventory\CommoditySubunit.cs" />
+    <Compile Include="Inventory\CommodityType.cs" />
+    <Compile Include="Inventory\CommodityUnit.cs" />
+    <Compile Include="Inventory\InventoryRecord.cs" />
+    <Compile Include="Inventory\InventoryRecordDetails.cs" />
+    <Compile Include="Inventory\Stock.cs" />
+    <Compile Include="Inventory\StockOrder.cs" />
+    <Compile Include="Inventory\StockOrderDetails.cs" />
+    <Compile Include="Inventory\Supplier.cs" />
+    <Compile Include="Inventory\SupplierType.cs" />
+    <Compile Include="Inventory\Warehouse.cs" />
+    <Compile Include="MaintainRoom.cs" />
+    <Compile Include="NonAccountsModel.cs" />
+    <Compile Include="Pos\PosShift.cs" />
+    <Compile Include="Pos\PosLog.cs" />
+    <Compile Include="Pos\PosInvoice.cs" />
+    <Compile Include="Pos\PosCat.cs" />
+    <Compile Include="Cat.cs" />
+    <Compile Include="CertificateType.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Enum\JzType.cs" />
+    <Compile Include="Enum\KaifangFangshiEnum.cs" />
+    <Compile Include="Enum\PayTypeEnum.cs" />
+    <Compile Include="Enum\ProjectEnum.cs" />
+    <Compile Include="Enum\StkTypeEnum.cs" />
+    <Compile Include="Pos\PosDiscount.cs" />
+    <Compile Include="Pos\PosDesk.cs" />
+    <Compile Include="Pos\PosSaleman.cs" />
+    <Compile Include="Pos\PosGuestSource.cs" />
+    <Compile Include="Pos\PosGoodsUnit .cs" />
+    <Compile Include="Pos\PosGoods.cs" />
+    <Compile Include="GoodsUnit.cs" />
+    <Compile Include="Pos\PosConsume.cs" />
+    <Compile Include="Pos\PosConsumeDetail.cs" />
+    <Compile Include="Pos\PosDefine.cs" />
+    <Compile Include="GuestInfoCN.cs" />
+    <Compile Include="GuestInfoCNRzRecord.cs" />
+    <Compile Include="GuestInfoEN.cs" />
+    <Compile Include="GuestInfoENRzRecord.cs" />
+    <Compile Include="GuestSource.cs" />
+    <Compile Include="Hch.cs" />
+    <Compile Include="IconModel.cs" />
+    <Compile Include="Khhy.cs" />
+    <Compile Include="Khlx.cs" />
+    <Compile Include="Khzt.cs" />
+    <Compile Include="Material.cs" />
+    <Compile Include="MaterialLease.cs" />
+    <Compile Include="MemBackCardRecord.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="MemberExcelModel.cs" />
+    <Compile Include="MemberFeeRecord.cs" />
+    <Compile Include="MemberJfdhRecord.cs" />
+    <Compile Include="MemberJftzRecord.cs" />
+    <Compile Include="MemberRechargeRecord.cs" />
+    <Compile Include="MemberType.cs" />
+    <Compile Include="MemberTypeSale.cs" />
+    <Compile Include="MemChangeCardRecord.cs" />
+    <Compile Include="MemExpireCardRecord.cs" />
+    <Compile Include="MemUplevelRecord.cs" />
+    <Compile Include="MoneyRecord.cs" />
+    <Compile Include="Param.cs" />
+    <Compile Include="PayType.cs" />
+    <Compile Include="PortEntry.cs" />
+    <Compile Include="Pos\PosConsumeSk.cs" />
+    <Compile Include="Pos\PosConsumeTk.cs" />
+    <Compile Include="Pos\PosConsumeJzd.cs" />
+    <Compile Include="Pos\PosConsumeYh.cs" />
+    <Compile Include="RechargeScheme.cs" />
+    <Compile Include="RoomChangeRecord.cs" />
+    <Compile Include="RoomPattenView.cs" />
+    <Compile Include="RoomChangeReason.cs" />
+    <Compile Include="RoomSelfuseReason.cs" />
+    <Compile Include="RoomRepairReason.cs" />
+    <Compile Include="RoomReg\CardType.cs" />
+    <Compile Include="RoomReg\CommisionType.cs" />
+    <Compile Include="RoomReg\CustomerTypeHelp.cs" />
+    <Compile Include="RoomReg\RoomRegFfTime.cs" />
+    <Compile Include="RoomReg\RoomRegGuestInfoCN.cs" />
+    <Compile Include="RoomReg\RoomRegGuestInfoEN.cs" />
+    <Compile Include="RoomReg\Invoice.cs" />
+    <Compile Include="RoomReg\JzViewHelp.cs" />
+    <Compile Include="RoomReg\RoomReg.cs" />
+    <Compile Include="RoomReg\RoomRegBfskd.cs" />
+    <Compile Include="RoomReg\RoomRegBfskdDetail.cs" />
+    <Compile Include="RoomReg\RoomRegFfRecord.cs" />
+    <Compile Include="RoomReg\RoomRegGoods.cs" />
+    <Compile Include="RoomReg\RoomRegGoodsDetails.cs" />
+    <Compile Include="RoomReg\RoomRegGuest.cs" />
+    <Compile Include="RoomReg\RoomRegHc.cs" />
+    <Compile Include="RoomReg\RoomRegHcDetail.cs" />
+    <Compile Include="RoomReg\RoomRegJfyh.cs" />
+    <Compile Include="RoomReg\RoomRegJzcxReason.cs" />
+    <Compile Include="RoomReg\RoomRegJzcxRecord.cs" />
+    <Compile Include="RoomReg\RoomRegJzd.cs" />
+    <Compile Include="RoomReg\RoomRegJzdDetail.cs" />
+    <Compile Include="RoomReg\RoomRegJzHelp.cs" />
+    <Compile Include="RoomReg\RoomRegQtfy.cs" />
+    <Compile Include="RoomReg\RoomRegSk.cs" />
+    <Compile Include="RoomReg\RoomRegSwpc.cs" />
+    <Compile Include="RoomReg\RoomRegSwpcDetails.cs" />
+    <Compile Include="RoomReg\RoomRegTk.cs" />
+    <Compile Include="RoomReg\RoomRegXyk.cs" />
+    <Compile Include="RoomReg\RoomRegYd.cs" />
+    <Compile Include="RoomReg\RoomRegYh.cs" />
+    <Compile Include="RoomReg\RoomRegYhfy.cs" />
+    <Compile Include="RoomReg\RoomRegYj.cs" />
+    <Compile Include="RoomReg\RoomRegYzzHelp.cs" />
+    <Compile Include="RoomReg\RoomRegZw.cs" />
+    <Compile Include="RoomReg\RoomRegZwPaytypeHelp.cs" />
+    <Compile Include="RoomReg\RoomRegZzwHelp.cs" />
+    <Compile Include="RoomReg\XfCommission.cs" />
+    <Compile Include="RoomSelfuse.cs" />
+    <Compile Include="RoomSet.cs" />
+    <Compile Include="Cost.cs" />
+    <Compile Include="CostCat.cs" />
+    <Compile Include="FuncBtn.cs" />
+    <Compile Include="GlobalFeeSet.cs" />
+    <Compile Include="Goods.cs" />
+    <Compile Include="HotelModel.cs" />
+    <Compile Include="HourRoom.cs" />
+    <Compile Include="HourRoomBase.cs" />
+    <Compile Include="LoginLog.cs" />
+    <Compile Include="MenuFuncBtn.cs" />
+    <Compile Include="Mode.cs" />
+    <Compile Include="OtherInfo.cs" />
+    <Compile Include="Pager.cs" />
+    <Compile Include="PeriodRoom.cs" />
+    <Compile Include="PeriodRoomBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="RoomPrice.cs" />
+    <Compile Include="RoomType.cs" />
+    <Compile Include="Shift.cs" />
+    <Compile Include="Swpc.cs" />
+    <Compile Include="SwpcCat.cs" />
+    <Compile Include="TreeNode.cs" />
+    <Compile Include="Room_message.cs" />
+    <Compile Include="Tysm.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="HolidaySet.cs" />
+    <Compile Include="WeekendSet.cs" />
+    <Compile Include="Xtlx.cs" />
+    <Compile Include="XyType.cs" />
+    <Compile Include="Yd\RoomYd.cs" />
+    <Compile Include="Yd\RoomYdRecord.cs" />
+    <Compile Include="Yd\RoomYdRoom.cs" />
+    <Compile Include="Yd\RoomYdRoomTypeHelp.cs" />
+    <Compile Include="Yd\YdType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MC.ORM\MC.ORM.csproj">
+      <Project>{d12c78cd-edbb-46e4-a15e-6203ba3fe8e6}</Project>
+      <Name>MC.ORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NIU.Core\NIU.Core.csproj">
+      <Project>{97A8F9FE-CC4E-4B06-BEBB-1B4CFCF57AED}</Project>
+      <Name>NIU.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NIU.Forum.Common\NIU.Forum.Common.csproj">
+      <Project>{1C13F31D-31D8-47EA-B45F-197C3BFC0FA6}</Project>
+      <Name>NIU.Forum.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\bin\4.6\MC.ORM.dll
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\bin\4.6\MC.ORM.pdb
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\obj\4.6\MC.ORM.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\obj\4.6\MC.ORM.dll
+C:\Users\admin\Desktop\Hotel0903\MC.ORM\obj\4.6\MC.ORM.pdb

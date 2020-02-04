@@ -1,0 +1,12 @@
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\bin\Debug\Hotel.WebCache.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\bin\Debug\Hotel.WebCache.pdb
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.pdb
+D:\接单的项目\hotel\Hotel0903\Hotel.WebCache\bin\Debug\Hotel.WebCache.dll
+D:\接单的项目\hotel\Hotel0903\Hotel.WebCache\bin\Debug\Hotel.WebCache.pdb
+D:\接单的项目\hotel\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.csprojAssemblyReference.cache
+D:\接单的项目\hotel\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.csproj.CoreCompileInputs.cache
+D:\接单的项目\hotel\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.dll
+D:\接单的项目\hotel\Hotel0903\Hotel.WebCache\obj\Debug\Hotel.WebCache.pdb

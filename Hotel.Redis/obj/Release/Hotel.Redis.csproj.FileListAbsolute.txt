@@ -1,0 +1,5 @@
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\bin\Release\Hotel.Redis.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\bin\Release\Hotel.Redis.pdb
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Release\Hotel.Redis.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Release\Hotel.Redis.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Release\Hotel.Redis.pdb

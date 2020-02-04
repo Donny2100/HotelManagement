@@ -1,0 +1,1791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{560AA4C7-2303-423C-B836-16A0375521AE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hotel.Admin</RootNamespace>
+    <AssemblyName>Hotel.Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\DLL\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.Core, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\CacheManager.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.StackExchange.Redis, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\CacheManager.StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheManager.SystemRuntimeCaching, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\CacheManager.SystemRuntimeCaching.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Authorization.Policy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Connections.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Connections.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Connections.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Cors, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\Microsoft.AspNetCore.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting, Version=2.2.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.2.2.7\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Core.2.2.5\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Common, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.SignalR.Common.1.1.0\lib\netstandard2.0\Microsoft.AspNetCore.SignalR.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.SignalR.Core.1.1.0\lib\netstandard2.0\Microsoft.AspNetCore.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SignalR.Protocols.Json, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.SignalR.Protocols.Json.1.1.0\lib\netstandard2.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.EnvironmentVariables.2.2.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.2.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.4.5.2\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.6.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.4.5.0\lib\netstandard2.0\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\OprtLogFilter.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UserAuthorizeAttribute.cs" />
+    <Compile Include="Controllers\AgreeComp\AgreeCompanyController.cs" />
+    <Compile Include="Controllers\DisposableMaterialController.cs" />
+    <Compile Include="Controllers\GuestFilesController.cs" />
+    <Compile Include="Controllers\GuestGoodsController.cs" />
+    <Compile Include="Controllers\GuestInfoCnController.cs" />
+    <Compile Include="Controllers\Inventory\CommodityController.cs" />
+    <Compile Include="Controllers\Inventory\CommodityUnitController.cs" />
+    <Compile Include="Controllers\Inventory\InStockController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryRecordController.cs" />
+    <Compile Include="Controllers\Inventory\OutStockController.cs" />
+    <Compile Include="Controllers\Inventory\RefundController.cs" />
+    <Compile Include="Controllers\Inventory\StockController.cs" />
+    <Compile Include="Controllers\Inventory\StockRecordController.cs" />
+    <Compile Include="Controllers\Inventory\SupplierController.cs" />
+    <Compile Include="Controllers\Inventory\TransferStockController.cs" />
+    <Compile Include="Controllers\Inventory\WarehouseController.cs" />
+    <Compile Include="Controllers\ChangeRoomController.cs" />
+    <Compile Include="Controllers\NightCheckController.cs" />
+    <Compile Include="Controllers\RoomRepairReasonController.cs" />
+    <Compile Include="Controllers\RoomChangeReasonController.cs" />
+    <Compile Include="Controllers\RoomSelfuseReasonController.cs" />
+    <Compile Include="Controllers\RoomSelfuseController.cs" />
+    <Compile Include="Controllers\Message\MeDeployController.cs" />
+    <Compile Include="Controllers\Message\MeHistoryController.cs" />
+    <Compile Include="Controllers\Message\MeSendController.cs" />
+    <Compile Include="Controllers\MaintainRoomController.cs" />
+    <Compile Include="Controllers\Pos\PosConsumeController_Serve.cs" />
+    <Compile Include="Controllers\Pos\PosConsumeController_YH.cs" />
+    <Compile Include="Controllers\Pos\PosInvoiceController.cs" />
+    <Compile Include="Controllers\Pos\PosController.cs" />
+    <Compile Include="Controllers\Pos\PosGoodsController.cs" />
+    <Compile Include="Controllers\Pos\PosGoodsUnitController.cs" />
+    <Compile Include="Controllers\Pos\PosCatController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\CertificateTypeController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\GoodsUnitController.cs" />
+    <Compile Include="Controllers\Pos\PosDiscountController.cs" />
+    <Compile Include="Controllers\Pos\PosDeskController.cs" />
+    <Compile Include="Controllers\GuestSourceController.cs" />
+    <Compile Include="Controllers\AgreeComp\HchController.cs" />
+    <Compile Include="Controllers\HolidaySetController.cs" />
+    <Compile Include="Controllers\IconModelController.cs" />
+    <Compile Include="Controllers\KhhyController.cs" />
+    <Compile Include="Controllers\KhlxController.cs" />
+    <Compile Include="Controllers\KhztController.cs" />
+    <Compile Include="Controllers\LCFeeSetController.cs" />
+    <Compile Include="Controllers\BillSetController.cs" />
+    <Compile Include="Controllers\MaterialController.cs" />
+    <Compile Include="Controllers\MaterialLeaseController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\MemberTypeController.cs" />
+    <Compile Include="Controllers\MemberTypeSaleController.cs" />
+    <Compile Include="Controllers\ParamController.cs" />
+    <Compile Include="Controllers\Pos\PosConsumeController.cs" />
+    <Compile Include="Controllers\Pos\PosDefineController.cs" />
+    <Compile Include="Controllers\PayTypeController.cs" />
+    <Compile Include="Controllers\PortEntryController.cs" />
+    <Compile Include="Controllers\Pos\PosConsumeSkController.cs" />
+    <Compile Include="Controllers\Pos\PosConsumeTkController.cs" />
+    <Compile Include="Controllers\QTFeeSetController.cs" />
+    <Compile Include="Controllers\HourRoomController.cs" />
+    <Compile Include="Controllers\ModeController.cs" />
+    <Compile Include="Controllers\OtherInfoController.cs" />
+    <Compile Include="Controllers\PeriodRoomController.cs" />
+    <Compile Include="Controllers\RechargeSchemeController.cs" />
+    <Compile Include="Controllers\RoomPatternController.cs" />
+    <Compile Include="Controllers\RoomPatternNewController.cs" />
+    <Compile Include="Controllers\RoomPattern_oldController.cs" />
+    <Compile Include="Controllers\RoomPriceController.cs" />
+    <Compile Include="Controllers\RoomReg\CardTypeController.cs" />
+    <Compile Include="Controllers\RoomReg\CommisionTypeController.cs" />
+    <Compile Include="Controllers\RoomReg\GuestSearchController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegGuestInfoController.cs" />
+    <Compile Include="Controllers\RoomReg\InvoiceController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegGoodsController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegHcController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegJfyhController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegJzcxReasonController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegQtfyController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegSkController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegSwpcController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegTkController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegXykController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegYhController.cs" />
+    <Compile Include="Controllers\RoomReg\RoomRegZwController.cs" />
+    <Compile Include="Controllers\RoomReg\XfCommissionController.cs" />
+    <Compile Include="Controllers\RoomSetController.cs" />
+    <Compile Include="Controllers\ShiftController.cs" />
+    <Compile Include="Controllers\CostCatController.cs" />
+    <Compile Include="Controllers\CostController.cs" />
+    <Compile Include="Controllers\GoodsController.cs" />
+    <Compile Include="Controllers\CatController.cs" />
+    <Compile Include="Controllers\BuildFloorController.cs" />
+    <Compile Include="Controllers\FuncBtnController.cs" />
+    <Compile Include="Controllers\GroupAuthorityController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\RoomTypeController.cs" />
+    <Compile Include="Controllers\Swpc\SwpcCatController.cs" />
+    <Compile Include="Controllers\Swpc\SwpcController.cs" />
+    <Compile Include="Controllers\TysmController.cs" />
+    <Compile Include="Controllers\Pos\PosSalemanController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ForgetController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UtilController.cs" />
+    <Compile Include="Controllers\XtlxController.cs" />
+    <Compile Include="Controllers\Yd\RoomYdController.cs" />
+    <Compile Include="Controllers\Yd\YdSkController.cs" />
+    <Compile Include="Controllers\Yd\YdTkController.cs" />
+    <Compile Include="Controllers\Yd\YdTypeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalHub.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
+    <Content Include="Static\avatar\css\main.css" />
+    <Content Include="Static\avatar\js\avatar.js" />
+    <Content Include="Static\avatar\js\cropper\cropper.min.css" />
+    <Content Include="Static\avatar\js\cropper\cropper.min.js" />
+    <Content Include="Static\avatar\js\webAvatar.js" />
+    <Content Include="Static\avatar\js\webuploader\Uploader.swf" />
+    <Content Include="Static\avatar\js\webuploader\webuploader.css" />
+    <Content Include="Static\avatar\js\webuploader\webuploader.min.js" />
+    <Content Include="Static\checkbox\css.css" />
+    <Content Include="Static\checkbox\js.js" />
+    <Content Include="Static\checkImg\checkImg.css" />
+    <Content Include="Static\checkImg\checkimg.js" />
+    <Content Include="Static\css\base.css" />
+    <Content Include="Static\css\base2.css" />
+    <Content Include="Static\css\basic_info.css" />
+    <Content Include="Static\css\bootstrap.min.css" />
+    <Content Include="Static\css\font-awesome.min.css" />
+    <Content Include="Static\css\index.css" />
+    <Content Include="Static\css\login\login.css" />
+    <Content Include="Static\css\myInput.css" />
+    <Content Include="Static\css\platform.css" />
+    <Content Include="Static\css\print.css" />
+    <Content Include="Static\css\process.css" />
+    <Content Include="Static\css\process_h5.css" />
+    <Content Include="Static\css\providers.css" />
+    <Content Include="Static\css\providers1.css" />
+    <Content Include="Static\css\style.css" />
+    <Content Include="Static\css\workbench.css" />
+    <Content Include="Static\custom\easyui-lang-zh_CN.js" />
+    <Content Include="Static\custom\easyui.css" />
+    <Content Include="Static\custom\jquery.easyui.min.js" />
+    <Content Include="Static\custom\jquery.min.js" />
+    <Content Include="Static\custom\uimaker\accordion.css" />
+    <Content Include="Static\custom\uimaker\calendar.css" />
+    <Content Include="Static\custom\uimaker\combobox.css" />
+    <Content Include="Static\custom\uimaker\css\base.css" />
+    <Content Include="Static\custom\uimaker\css\login\login.css" />
+    <Content Include="Static\custom\uimaker\datagrid.css" />
+    <Content Include="Static\custom\uimaker\datalist.css" />
+    <Content Include="Static\custom\uimaker\datebox.css" />
+    <Content Include="Static\custom\uimaker\dialog.css" />
+    <Content Include="Static\custom\uimaker\easyui.css" />
+    <Content Include="Static\custom\uimaker\filebox.css" />
+    <Content Include="Static\custom\uimaker\fonticon.css" />
+    <Content Include="Static\custom\uimaker\icon.css" />
+    <Content Include="Static\custom\uimaker\icons\back.png" />
+    <Content Include="Static\custom\uimaker\icons\blank.gif" />
+    <Content Include="Static\custom\uimaker\icons\cancel.png" />
+    <Content Include="Static\custom\uimaker\icons\clear.png" />
+    <Content Include="Static\custom\uimaker\icons\cut.png" />
+    <Content Include="Static\custom\uimaker\icons\edit_add.png" />
+    <Content Include="Static\custom\uimaker\icons\edit_remove.png" />
+    <Content Include="Static\custom\uimaker\icons\filesave.png" />
+    <Content Include="Static\custom\uimaker\icons\filter.png" />
+    <Content Include="Static\custom\uimaker\icons\help.png" />
+    <Content Include="Static\custom\uimaker\icons\large_chart.png" />
+    <Content Include="Static\custom\uimaker\icons\large_clipart.png" />
+    <Content Include="Static\custom\uimaker\icons\large_picture.png" />
+    <Content Include="Static\custom\uimaker\icons\large_shapes.png" />
+    <Content Include="Static\custom\uimaker\icons\large_smartart.png" />
+    <Content Include="Static\custom\uimaker\icons\list.png" />
+    <Content Include="Static\custom\uimaker\icons\lock.png" />
+    <Content Include="Static\custom\uimaker\icons\man.png" />
+    <Content Include="Static\custom\uimaker\icons\mini_add.png" />
+    <Content Include="Static\custom\uimaker\icons\mini_edit.png" />
+    <Content Include="Static\custom\uimaker\icons\mini_refresh.png" />
+    <Content Include="Static\custom\uimaker\icons\more.png" />
+    <Content Include="Static\custom\uimaker\icons\no.png" />
+    <Content Include="Static\custom\uimaker\icons\ok.png" />
+    <Content Include="Static\custom\uimaker\icons\pencil.png" />
+    <Content Include="Static\custom\uimaker\icons\print.png" />
+    <Content Include="Static\custom\uimaker\icons\redo.png" />
+    <Content Include="Static\custom\uimaker\icons\reload.png" />
+    <Content Include="Static\custom\uimaker\icons\search.png" />
+    <Content Include="Static\custom\uimaker\icons\sum.png" />
+    <Content Include="Static\custom\uimaker\icons\tip.png" />
+    <Content Include="Static\custom\uimaker\icons\undo.png" />
+    <Content Include="Static\custom\uimaker\images\accordion_arrows.png" />
+    <Content Include="Static\custom\uimaker\images\blank.gif" />
+    <Content Include="Static\custom\uimaker\images\calendar_arrows.png" />
+    <Content Include="Static\custom\uimaker\images\combo_arrow.png" />
+    <Content Include="Static\custom\uimaker\images\datagrid_icons.png" />
+    <Content Include="Static\custom\uimaker\images\datebox_arrow.png" />
+    <Content Include="Static\custom\uimaker\images\layout_arrows.png" />
+    <Content Include="Static\custom\uimaker\images\linkbutton_bg.png" />
+    <Content Include="Static\custom\uimaker\images\loading.gif" />
+    <Content Include="Static\custom\uimaker\images\menu_arrows.png" />
+    <Content Include="Static\custom\uimaker\images\messager_icons.png" />
+    <Content Include="Static\custom\uimaker\images\new\datebox_arrow.png" />
+    <Content Include="Static\custom\uimaker\images\new\dialog_close.png" />
+    <Content Include="Static\custom\uimaker\images\new\grid.png" />
+    <Content Include="Static\custom\uimaker\images\new\pagination_icons_disabeld.png" />
+    <Content Include="Static\custom\uimaker\images\new\pagination_icons_hover.png" />
+    <Content Include="Static\custom\uimaker\images\new\panel_tools_hover.png" />
+    <Content Include="Static\custom\uimaker\images\new\spinner_arrows.png" />
+    <Content Include="Static\custom\uimaker\images\new\tabs_close.png" />
+    <Content Include="Static\custom\uimaker\images\new\tabs_close_hover.png" />
+    <Content Include="Static\custom\uimaker\images\new\tab_dropdown.png" />
+    <Content Include="Static\custom\uimaker\images\new\tab_dropdown_hover.png" />
+    <Content Include="Static\custom\uimaker\images\new\下拉菜单.png" />
+    <Content Include="Static\custom\uimaker\images\new\面板.png" />
+    <Content Include="Static\custom\uimaker\images\new\面板_如果左边图标可以直接用白色时候就只用这个.png" />
+    <Content Include="Static\custom\uimaker\images\pagination_icons.png" />
+    <Content Include="Static\custom\uimaker\images\panel_tools.png" />
+    <Content Include="Static\custom\uimaker\images\searchbox_button.png" />
+    <Content Include="Static\custom\uimaker\images\slider_handle.png" />
+    <Content Include="Static\custom\uimaker\images\spinner_arrows.png" />
+    <Content Include="Static\custom\uimaker\images\tabs_icons.png" />
+    <Content Include="Static\custom\uimaker\images\tree_icons.png" />
+    <Content Include="Static\custom\uimaker\images\validatebox_warning.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\loginbg.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\login_box.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\login_box_w.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\login_logo.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\login_logo_w.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\login_top_left.png" />
+    <Content Include="Static\custom\uimaker\imgs\login\login_top_right.png" />
+    <Content Include="Static\custom\uimaker\js\jquery.min.js" />
+    <Content Include="Static\custom\uimaker\layout.css" />
+    <Content Include="Static\custom\uimaker\linkbutton.css" />
+    <Content Include="Static\custom\uimaker\menu.css" />
+    <Content Include="Static\custom\uimaker\menubutton.css" />
+    <Content Include="Static\custom\uimaker\messager.css" />
+    <Content Include="Static\custom\uimaker\pagination.css" />
+    <Content Include="Static\custom\uimaker\panel.css" />
+    <Content Include="Static\custom\uimaker\progressbar.css" />
+    <Content Include="Static\custom\uimaker\searchbox.css" />
+    <Content Include="Static\custom\uimaker\slider.css" />
+    <Content Include="Static\custom\uimaker\spinner.css" />
+    <Content Include="Static\custom\uimaker\switchbutton.css" />
+    <Content Include="Static\custom\uimaker\tab.css" />
+    <Content Include="Static\custom\uimaker\textbox.css" />
+    <Content Include="Static\custom\uimaker\tooltip.css" />
+    <Content Include="Static\custom\uimaker\tree.css" />
+    <Content Include="Static\custom\uimaker\view\login\login.html" />
+    <Content Include="Static\custom\uimaker\view\login\login_white.html" />
+    <Content Include="Static\custom\uimaker\window.css" />
+    <Content Include="Static\fonts\demo.css" />
+    <Content Include="Static\fonts\demo.html" />
+    <Content Include="Static\fonts\fontawesome-webfont.svg" />
+    <Content Include="Static\fonts\iconfont.css" />
+    <Content Include="Static\fonts\iconfont.svg" />
+    <Content Include="Static\font\iconfont.css" />
+    <Content Include="Static\images\buttons.png" />
+    <Content Include="Static\images\guide\arrow.png" />
+    <Content Include="Static\images\hhy01bg.png" />
+    <Content Include="Static\images\hhy02bg.png" />
+    <Content Include="Static\images\hhy03bg.png" />
+    <Content Include="Static\images\icon\iconxz.png" />
+    <Content Include="Static\images\liucheng.png" />
+    <Content Include="Static\images\loginbg.png" />
+    <Content Include="Static\images\login_bg_tubiao.png" />
+    <Content Include="Static\images\login_box.png" />
+    <Content Include="Static\images\login_box_w.png" />
+    <Content Include="Static\images\login_logo.png" />
+    <Content Include="Static\images\login_logo_w.png" />
+    <Content Include="Static\images\login_top_left.png" />
+    <Content Include="Static\images\login_top_right.png" />
+    <Content Include="Static\images\main\left_list.png" />
+    <Content Include="Static\images\main\main_logo.png" />
+    <Content Include="Static\images\main\navbg.png" />
+    <Content Include="Static\images\main\sider-toggle.png" />
+    <Content Include="Static\images\main\tabs_close_hover.png" />
+    <Content Include="Static\images\main\tabs_close_pf.png" />
+    <Content Include="Static\images\main\topbg.png" />
+    <Content Include="Static\images\main\top_bottombg.png" />
+    <Content Include="Static\images\main\top_userbg.png" />
+    <Content Include="Static\images\main\user.png" />
+    <Content Include="Static\images\main\xg_left.png" />
+    <Content Include="Static\images\main\xg_right.png" />
+    <Content Include="Static\images\main_logo.png" />
+    <Content Include="Static\images\new.png" />
+    <Content Include="Static\images\tab_btn.png" />
+    <Content Include="Static\images\timeline\arrow.png" />
+    <Content Include="Static\images\timeline\blank.png" />
+    <Content Include="Static\images\timeline\dot.png" />
+    <Content Include="Static\images\timeline\down.png" />
+    <Content Include="Static\images\user.png" />
+    <Content Include="Static\jedate\jquery-1.7.2.js" />
+    <Content Include="Static\jedate\jquery.jedate.js" />
+    <Content Include="Static\jedate\jquery.jedate.min.js" />
+    <Content Include="Static\jedate\skin\jedate.css" />
+    <Content Include="Static\jedate\test\jeDate-test.css" />
+    <Content Include="Static\jedate\test\jeDate-test.html" />
+    <Content Include="Static\jedate\test\jedate-test.js" />
+    <Content Include="Static\JPEGCam\shutter.mp3" />
+    <Content Include="Static\JPEGCam\webcam.js" />
+    <Content Include="Static\JPEGCam\webcam.swf" />
+    <Content Include="Static\js\baiduTemplate.js" />
+    <Content Include="Static\js\bootstrap.min.js" />
+    <Content Include="Static\js\common.js" />
+    <Content Include="Static\js\DateTimeOverFlowFormat.js" />
+    <Content Include="Static\js\echarts-all.js" />
+    <Content Include="Static\js\jquery.form.js" />
+    <Content Include="Static\js\jquery.jqprint-0.3.js" />
+    <Content Include="Static\js\main.js" />
+    <Content Include="Static\js\pagejs\home.js" />
+    <Content Include="Static\js\rewrite.js" />
+    <Content Include="Static\js\roomregzw\index.js" />
+    <Content Include="Static\js\roomreg\index.js" />
+    <Content Include="Static\js\serializeObj.js" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\emotion.css" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\emotion.js" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\0.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="Static\js\umeditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="Static\js\umeditor\dialogs\formula\formula.css" />
+    <Content Include="Static\js\umeditor\dialogs\formula\formula.html" />
+    <Content Include="Static\js\umeditor\dialogs\formula\formula.js" />
+    <Content Include="Static\js\umeditor\dialogs\formula\images\formula.png" />
+    <Content Include="Static\js\umeditor\dialogs\image\image.css" />
+    <Content Include="Static\js\umeditor\dialogs\image\image.js" />
+    <Content Include="Static\js\umeditor\dialogs\image\images\close.png" />
+    <Content Include="Static\js\umeditor\dialogs\image\images\upload1.png" />
+    <Content Include="Static\js\umeditor\dialogs\image\images\upload2.png" />
+    <Content Include="Static\js\umeditor\dialogs\link\link.js" />
+    <Content Include="Static\js\umeditor\dialogs\map\map.html" />
+    <Content Include="Static\js\umeditor\dialogs\map\map.js" />
+    <Content Include="Static\js\umeditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="Static\js\umeditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="Static\js\umeditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="Static\js\umeditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="Static\js\umeditor\dialogs\video\video.css" />
+    <Content Include="Static\js\umeditor\dialogs\video\video.js" />
+    <Content Include="Static\js\umeditor\index.html" />
+    <Content Include="Static\js\umeditor\jsp\commons-fileupload-1.2.2.jar" />
+    <Content Include="Static\js\umeditor\jsp\ueditor-mini.jar" />
+    <Content Include="Static\js\umeditor\jsp\Uploader.java" />
+    <Content Include="Static\js\umeditor\lang\en\en.js" />
+    <Content Include="Static\js\umeditor\lang\en\images\addimage.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\background.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\button.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\copy.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\deletedisable.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\deleteenable.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\imglabel.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\listbackground.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\localimage.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\music.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="Static\js\umeditor\lang\en\images\upload.png" />
+    <Content Include="Static\js\umeditor\lang\zh-cn\images\copy.png" />
+    <Content Include="Static\js\umeditor\lang\zh-cn\images\imglabel.png" />
+    <Content Include="Static\js\umeditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="Static\js\umeditor\lang\zh-cn\images\music.png" />
+    <Content Include="Static\js\umeditor\lang\zh-cn\images\upload.png" />
+    <Content Include="Static\js\umeditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="Static\js\umeditor\themes\default\css\umeditor.css" />
+    <Content Include="Static\js\umeditor\themes\default\css\umeditor.min.css" />
+    <Content Include="Static\js\umeditor\themes\default\images\caret.png" />
+    <Content Include="Static\js\umeditor\themes\default\images\close.png" />
+    <Content Include="Static\js\umeditor\themes\default\images\icons.gif" />
+    <Content Include="Static\js\umeditor\themes\default\images\icons.png" />
+    <Content Include="Static\js\umeditor\themes\default\images\ok.gif" />
+    <Content Include="Static\js\umeditor\themes\default\images\pop-bg.png" />
+    <Content Include="Static\js\umeditor\themes\default\images\spacer.gif" />
+    <Content Include="Static\js\umeditor\themes\default\images\videologo.gif" />
+    <Content Include="Static\js\umeditor\third-party\jquery.min.js" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\STIXFontLicense2010.txt" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.svg" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.svg" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.svg" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.svg" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\Symbola.svg" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\mathquill.css" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\mathquill.js" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\mathquill.min.js" />
+    <Content Include="Static\js\umeditor\umeditor.config.js" />
+    <Content Include="Static\js\umeditor\umeditor.js" />
+    <Content Include="Static\js\umeditor\umeditor.min.js" />
+    <Content Include="Static\js\validate\additional-methods.min.js" />
+    <Content Include="Static\js\validate\jquery.validate.min.js" />
+    <Content Include="Static\js\validate\messages_zh.min.js" />
+    <Content Include="Static\js\zTree\api\apiCss\api.js" />
+    <Content Include="Static\js\zTree\api\apiCss\common.css" />
+    <Content Include="Static\js\zTree\api\apiCss\common_ie6.css" />
+    <Content Include="Static\js\zTree\api\apiCss\img\apiMenu.gif" />
+    <Content Include="Static\js\zTree\api\apiCss\img\apiMenu.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\background.jpg" />
+    <Content Include="Static\js\zTree\api\apiCss\img\chinese.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\close.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\contact-bg.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\english.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\header-bg.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\lightbulb.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\overlay_arrow.gif" />
+    <Content Include="Static\js\zTree\api\apiCss\img\overlay_arrow.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\overlay_bg.png" />
+    <Content Include="Static\js\zTree\api\apiCss\img\overlay_close_IE6.gif" />
+    <Content Include="Static\js\zTree\api\apiCss\img\zTreeStandard.gif" />
+    <Content Include="Static\js\zTree\api\apiCss\img\zTreeStandard.png" />
+    <Content Include="Static\js\zTree\api\apiCss\jquery-1.6.2.min.js" />
+    <Content Include="Static\js\zTree\api\apiCss\jquery.ztree.core.js" />
+    <Content Include="Static\js\zTree\api\apiCss\zTreeStyleForApi.css" />
+    <Content Include="Static\js\zTree\api\API_cn.html" />
+    <Content Include="Static\js\zTree\api\API_en.html" />
+    <Content Include="Static\js\zTree\api\cn\fn.zTree.destroy.html" />
+    <Content Include="Static\js\zTree\api\cn\fn.zTree.getZTreeObj.html" />
+    <Content Include="Static\js\zTree\api\cn\fn.zTree.init.html" />
+    <Content Include="Static\js\zTree\api\cn\fn.zTree._z.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.autoParam.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.contentType.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.dataFilter.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.dataType.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.enable.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.headers.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.otherParam.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.type.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.url.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.async.xhrFields.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeAsync.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeCheck.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeClick.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeCollapse.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeDblClick.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeDrag.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeDragOpen.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeDrop.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeEditName.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeExpand.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeMouseDown.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeMouseUp.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeRemove.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeRename.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.beforeRightClick.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onAsyncError.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onAsyncSuccess.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onCheck.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onClick.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onCollapse.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onDblClick.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onDrag.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onDragMove.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onDrop.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onExpand.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onMouseDown.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onMouseUp.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onNodeCreated.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onRemove.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onRename.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.callback.onRightClick.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.autoCheckTrigger.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.chkboxType.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.chkDisabledInherit.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.chkStyle.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.enable.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.nocheckInherit.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.check.radioType.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.keep.leaf.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.keep.parent.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.checked.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.children.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.isHidden.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.isParent.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.name.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.title.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.key.url.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.simpleData.enable.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.simpleData.idKey.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.simpleData.pIdKey.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.data.simpleData.rootPId.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.borderMax.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.borderMin.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.inner.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.isCopy.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.isMove.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.minMoveSize.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.next.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.drag.prev.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.editNameSelectAll.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.enable.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.removeTitle.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.renameTitle.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.showRemoveBtn.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.edit.showRenameBtn.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.treeId.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.treeObj.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.addDiyDom.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.addHoverDom.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.autoCancelSelected.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.dblClickExpand.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.expandSpeed.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.fontCss.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.nameIsHTML.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.removeHoverDom.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.selectedMulti.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.showIcon.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.showLine.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.showTitle.html" />
+    <Content Include="Static\js\zTree\api\cn\setting.view.txtSelectedEnable.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.checked.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.checkedOld.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.check_Child_State.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.check_Focus.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.children.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.chkDisabled.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.click.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.diy.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.editNameFlag.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.getCheckStatus.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.getIndex.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.getNextNode.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.getParentNode.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.getPath.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.getPreNode.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.halfCheck.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.icon.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.iconClose.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.iconOpen.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.iconSkin.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.isAjaxing.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.isFirstNode.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.isHidden.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.isHover.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.isLastNode.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.isParent.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.level.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.name.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.nocheck.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.open.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.parentTId.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.target.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.tId.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.url.html" />
+    <Content Include="Static\js\zTree\api\cn\treeNode.zAsync.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.addNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.cancelEditName.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.checkAllNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.checkNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.copyNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.destroy.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.editName.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.expandAll.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.expandNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getCheckedNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodeByParam.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodeByTId.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodeIndex.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodesByFilter.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodesByParam.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.getSelectedNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.hideNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.hideNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.moveNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.reAsyncChildNodesPromise.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.refresh.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.removeChildNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.removeNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.selectNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.setChkDisabled.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.setEditable.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.setting.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.showNode.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.showNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.transformToArray.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="Static\js\zTree\api\cn\zTreeObj.updateNode.html" />
+    <Content Include="Static\js\zTree\api\en\fn.zTree.destroy.html" />
+    <Content Include="Static\js\zTree\api\en\fn.zTree.getZTreeObj.html" />
+    <Content Include="Static\js\zTree\api\en\fn.zTree.init.html" />
+    <Content Include="Static\js\zTree\api\en\fn.zTree._z.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.autoParam.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.contentType.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.dataFilter.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.dataType.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.enable.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.headers.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.otherParam.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.type.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.url.html" />
+    <Content Include="Static\js\zTree\api\en\setting.async.xhrFields.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeAsync.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeCheck.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeClick.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeCollapse.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeDblClick.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeDrag.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeDragOpen.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeDrop.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeEditName.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeExpand.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeMouseDown.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeMouseUp.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeRemove.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeRename.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.beforeRightClick.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onAsyncError.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onAsyncSuccess.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onCheck.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onClick.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onCollapse.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onDblClick.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onDrag.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onDragMove.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onDrop.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onExpand.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onMouseDown.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onMouseUp.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onNodeCreated.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onRemove.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onRename.html" />
+    <Content Include="Static\js\zTree\api\en\setting.callback.onRightClick.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.autoCheckTrigger.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.chkboxType.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.chkDisabledInherit.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.chkStyle.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.enable.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.nocheckInherit.html" />
+    <Content Include="Static\js\zTree\api\en\setting.check.radioType.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.keep.leaf.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.keep.parent.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.checked.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.children.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.isHidden.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.isParent.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.name.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.title.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.key.url.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.simpleData.enable.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.simpleData.idKey.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.simpleData.pIdKey.html" />
+    <Content Include="Static\js\zTree\api\en\setting.data.simpleData.rootPId.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.borderMax.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.borderMin.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.inner.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.isCopy.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.isMove.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.minMoveSize.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.next.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.drag.prev.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.editNameSelectAll.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.enable.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.removeTitle.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.renameTitle.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.showRemoveBtn.html" />
+    <Content Include="Static\js\zTree\api\en\setting.edit.showRenameBtn.html" />
+    <Content Include="Static\js\zTree\api\en\setting.treeId.html" />
+    <Content Include="Static\js\zTree\api\en\setting.treeObj.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.addDiyDom.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.addHoverDom.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.autoCancelSelected.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.dblClickExpand.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.expandSpeed.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.fontCss.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.nameIsHTML.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.removeHoverDom.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.selectedMulti.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.showIcon.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.showLine.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.showTitle.html" />
+    <Content Include="Static\js\zTree\api\en\setting.view.txtSelectedEnable.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.checked.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.checkedOld.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.check_Child_State.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.check_Focus.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.children.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.chkDisabled.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.click.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.diy.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.editNameFlag.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.getCheckStatus.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.getIndex.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.getNextNode.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.getParentNode.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.getPath.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.getPreNode.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.halfCheck.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.icon.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.iconClose.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.iconOpen.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.iconSkin.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.isAjaxing.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.isFirstNode.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.isHidden.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.isHover.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.isLastNode.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.isParent.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.level.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.name.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.nocheck.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.open.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.parentTId.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.target.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.tId.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.url.html" />
+    <Content Include="Static\js\zTree\api\en\treeNode.zAsync.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.addNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.cancelEditName.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.checkAllNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.checkNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.copyNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.destroy.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.editName.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.expandAll.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.expandNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getCheckedNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodeByParam.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodeByTId.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodeIndex.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodesByFilter.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodesByParam.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.getSelectedNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.hideNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.hideNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.moveNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.reAsyncChildNodesPromise.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.refresh.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.removeChildNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.removeNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.selectNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.setChkDisabled.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.setEditable.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.setting.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.showNode.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.showNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.transformToArray.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="Static\js\zTree\api\en\zTreeObj.updateNode.html" />
+    <Content Include="Static\js\zTree\css\awesomeStyle\awesome.css" />
+    <Content Include="Static\js\zTree\css\awesomeStyle\img\loading.gif" />
+    <Content Include="Static\js\zTree\css\demo.css" />
+    <Content Include="Static\js\zTree\css\metroStyle\img\line_conn.png" />
+    <Content Include="Static\js\zTree\css\metroStyle\img\loading.gif" />
+    <Content Include="Static\js\zTree\css\metroStyle\img\metro.gif" />
+    <Content Include="Static\js\zTree\css\metroStyle\img\metro.png" />
+    <Content Include="Static\js\zTree\css\metroStyle\metroStyle.css" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="Static\js\zTree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Static\js\zTree\demo\cn\bigdata\common.html" />
+    <Content Include="Static\js\zTree\demo\cn\bigdata\diy_async.html" />
+    <Content Include="Static\js\zTree\demo\cn\bigdata\page.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\async.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\async_fun.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\click.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\custom_font.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\custom_icon.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\custom_iconSkin.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\expand.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\noicon.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\noline.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\otherMouse.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\searchNodes.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\simpleData.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\standardData.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\update_fun.html" />
+    <Content Include="Static\js\zTree\demo\cn\core\url.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\checkbox.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\checkbox_chkDisabled.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\checkbox_count.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\checkbox_fun.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\checkbox_halfCheck.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\checkbox_nocheck.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\radio.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\radio_chkDisabled.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\radio_fun.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\radio_halfCheck.html" />
+    <Content Include="Static\js\zTree\demo\cn\excheck\radio_nocheck.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\async_edit.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\drag.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\drag_fun.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\drag_super.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\edit.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\edit_fun.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\edit_super.html" />
+    <Content Include="Static\js\zTree\demo\cn\exedit\multiTree.html" />
+    <Content Include="Static\js\zTree\demo\cn\exhide\checkbox.html" />
+    <Content Include="Static\js\zTree\demo\cn\exhide\common.html" />
+    <Content Include="Static\js\zTree\demo\cn\exhide\radio.html" />
+    <Content Include="Static\js\zTree\demo\cn\index.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\asyncForAll.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\awesome.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\checkbox_radio.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\diydom.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\dragWithOther.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\fuzzySearch.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\left_menu.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\left_menuForOutLook.gif" />
+    <Content Include="Static\js\zTree\demo\cn\super\left_menuForOutLook.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\left_menuForOutLook.png" />
+    <Content Include="Static\js\zTree\demo\cn\super\metro.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\oneclick.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\oneroot.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\rightClickMenu.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\select_menu.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\select_menu_checkbox.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\select_menu_radio.html" />
+    <Content Include="Static\js\zTree\demo\cn\super\singlepath.html" />
+    <Content Include="Static\js\zTree\demo\en\bigdata\common.html" />
+    <Content Include="Static\js\zTree\demo\en\bigdata\diy_async.html" />
+    <Content Include="Static\js\zTree\demo\en\bigdata\page.html" />
+    <Content Include="Static\js\zTree\demo\en\core\async.html" />
+    <Content Include="Static\js\zTree\demo\en\core\async_fun.html" />
+    <Content Include="Static\js\zTree\demo\en\core\click.html" />
+    <Content Include="Static\js\zTree\demo\en\core\custom_font.html" />
+    <Content Include="Static\js\zTree\demo\en\core\custom_icon.html" />
+    <Content Include="Static\js\zTree\demo\en\core\custom_iconSkin.html" />
+    <Content Include="Static\js\zTree\demo\en\core\expand.html" />
+    <Content Include="Static\js\zTree\demo\en\core\noicon.html" />
+    <Content Include="Static\js\zTree\demo\en\core\noline.html" />
+    <Content Include="Static\js\zTree\demo\en\core\otherMouse.html" />
+    <Content Include="Static\js\zTree\demo\en\core\searchNodes.html" />
+    <Content Include="Static\js\zTree\demo\en\core\simpleData.html" />
+    <Content Include="Static\js\zTree\demo\en\core\standardData.html" />
+    <Content Include="Static\js\zTree\demo\en\core\update_fun.html" />
+    <Content Include="Static\js\zTree\demo\en\core\url.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\checkbox.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\checkbox_chkDisabled.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\checkbox_count.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\checkbox_fun.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\checkbox_halfCheck.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\checkbox_nocheck.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\radio.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\radio_chkDisabled.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\radio_fun.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\radio_halfCheck.html" />
+    <Content Include="Static\js\zTree\demo\en\excheck\radio_nocheck.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\async_edit.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\drag.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\drag_fun.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\drag_super.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\edit.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\edit_fun.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\edit_super.html" />
+    <Content Include="Static\js\zTree\demo\en\exedit\multiTree.html" />
+    <Content Include="Static\js\zTree\demo\en\exhide\checkbox.html" />
+    <Content Include="Static\js\zTree\demo\en\exhide\common.html" />
+    <Content Include="Static\js\zTree\demo\en\exhide\radio.html" />
+    <Content Include="Static\js\zTree\demo\en\index.html" />
+    <Content Include="Static\js\zTree\demo\en\super\asyncForAll.html" />
+    <Content Include="Static\js\zTree\demo\en\super\awesome.html" />
+    <Content Include="Static\js\zTree\demo\en\super\checkbox_radio.html" />
+    <Content Include="Static\js\zTree\demo\en\super\diydom.html" />
+    <Content Include="Static\js\zTree\demo\en\super\dragWithOther.html" />
+    <Content Include="Static\js\zTree\demo\en\super\fuzzySearch.html" />
+    <Content Include="Static\js\zTree\demo\en\super\left_menu.html" />
+    <Content Include="Static\js\zTree\demo\en\super\left_menuForOutLook.gif" />
+    <Content Include="Static\js\zTree\demo\en\super\left_menuForOutLook.html" />
+    <Content Include="Static\js\zTree\demo\en\super\left_menuForOutLook.png" />
+    <Content Include="Static\js\zTree\demo\en\super\metro.html" />
+    <Content Include="Static\js\zTree\demo\en\super\oneclick.html" />
+    <Content Include="Static\js\zTree\demo\en\super\oneroot.html" />
+    <Content Include="Static\js\zTree\demo\en\super\rightClickMenu.html" />
+    <Content Include="Static\js\zTree\demo\en\super\select_menu.html" />
+    <Content Include="Static\js\zTree\demo\en\super\select_menu_checkbox.html" />
+    <Content Include="Static\js\zTree\demo\en\super\select_menu_radio.html" />
+    <Content Include="Static\js\zTree\demo\en\super\singlepath.html" />
+    <Content Include="Static\js\zTree\demo\en\super\ztree.html" />
+    <Content Include="Static\js\zTree\demo\js\fuzzysearch.js" />
+    <Content Include="Static\js\zTree\js\jquery-1.4.4.min.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.all.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.all.min.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.core.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.core.min.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.excheck.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.excheck.min.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.exedit.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.exedit.min.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.exhide.js" />
+    <Content Include="Static\js\zTree\js\jquery.ztree.exhide.min.js" />
+    <Content Include="Static\js\zTree\log v3.x.txt" />
+    <Content Include="Static\layer\extend\layer.ext.js" />
+    <Content Include="Static\layer\laydate\laydate.js" />
+    <Content Include="Static\layer\laydate\need\laydate.css" />
+    <Content Include="Static\layer\laydate\skins\default\icon.png" />
+    <Content Include="Static\layer\laydate\skins\default\laydate.css" />
+    <Content Include="Static\layer\layer.min.js" />
+    <Content Include="Static\layer\skin\default\icon-ext.png" />
+    <Content Include="Static\layer\skin\default\icon.png" />
+    <Content Include="Static\layer\skin\default\icon_ext.png" />
+    <Content Include="Static\layer\skin\default\loading-0.gif" />
+    <Content Include="Static\layer\skin\default\loading-1.gif" />
+    <Content Include="Static\layer\skin\default\loading-2.gif" />
+    <Content Include="Static\layer\skin\default\textbg.png" />
+    <Content Include="Static\layer\skin\default\xubox_ico0.png" />
+    <Content Include="Static\layer\skin\default\xubox_loading0.gif" />
+    <Content Include="Static\layer\skin\default\xubox_loading1.gif" />
+    <Content Include="Static\layer\skin\default\xubox_loading2.gif" />
+    <Content Include="Static\layer\skin\default\xubox_loading3.gif" />
+    <Content Include="Static\layer\skin\default\xubox_title0.png" />
+    <Content Include="Static\layer\skin\layer.css" />
+    <Content Include="Static\layer\skin\layer.ext.css" />
+    <Content Include="Static\layer\skin\moon\default.png" />
+    <Content Include="Static\layer\skin\moon\style.css" />
+    <Content Include="Static\quickMenu\contextmenu.js" />
+    <Content Include="Static\quickMenu\quickMenu.css" />
+    <Content Include="Static\uploadify\Change Log.txt" />
+    <Content Include="Static\uploadify\jquery.uploadify.js" />
+    <Content Include="Static\uploadify\jquery.uploadify.min.js" />
+    <Content Include="Static\uploadify\license.txt" />
+    <Content Include="Static\uploadify\uploadify-cancel.png" />
+    <Content Include="Static\uploadify\uploadify.css" />
+    <Content Include="Static\uploadify\uploadify.swf" />
+    <Content Include="Static\uploadify\__MACOSX\._Change Log.txt" />
+    <Content Include="Static\uploadify\__MACOSX\._uploadify.swf" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="upload\menu\" />
+    <Folder Include="upload\user\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Forget\" />
+    <Folder Include="Views\GuestInfoCN\" />
+    <Folder Include="Views\GuestInfo\" />
+    <Folder Include="Views\Util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <Content Include="Config\log4net.config" />
+    <Content Include="Config\xytype.json" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Static\fonts\iconfont.eot" />
+    <Content Include="Static\fonts\iconfont.ttf" />
+    <Content Include="Static\fonts\iconfont.woff" />
+    <Content Include="Static\images\pages - 快捷方式.lnk" />
+    <Content Include="Static\js\umeditor\jsp\getContent.jsp" />
+    <Content Include="Static\js\umeditor\jsp\imageUp.jsp" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.eot" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.ttf" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneral-webfont.woff" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.eot" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.ttf" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbol-webfont.woff" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.eot" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.ttf" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralbolita-webfont.woff" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.eot" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.ttf" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\stixgeneral-bundle\stixgeneralitalic-webfont.woff" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\Symbola.eot" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\Symbola.otf" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\Symbola.ttf" />
+    <Content Include="Static\js\umeditor\third-party\mathquill\font\Symbola.woff" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Static\fonts\fontawesome-webfont.eot" />
+    <Content Include="Static\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Static\fonts\fontawesome-webfont.woff" />
+    <Content Include="Static\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Static\fonts\FontAwesome.otf" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Menu\Edit.cshtml" />
+    <Content Include="Views\Hotel\Index.cshtml" />
+    <Content Include="Views\Hotel\Edit.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
+    <Content Include="Views\Group\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\FuncBtn\Index.cshtml" />
+    <Content Include="Views\FuncBtn\Edit.cshtml" />
+    <Content Include="Views\BuildFloor\Index.cshtml" />
+    <Content Include="Views\BuildFloor\Edit.cshtml" />
+    <Content Include="Views\User\Personal.cshtml" />
+    <Content Include="Views\Home\_PwdEdit.cshtml" />
+    <Content Include="Views\GroupAuthority\Index.cshtml" />
+    <Content Include="Views\RoomType\Index.cshtml" />
+    <Content Include="Views\RoomType\Edit.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Cat\Index.cshtml" />
+    <Content Include="Views\Cat\Edit.cshtml" />
+    <Content Include="Views\Goods\Index.cshtml" />
+    <Content Include="Views\Goods\Edit.cshtml" />
+    <Content Include="Views\CostCat\Index.cshtml" />
+    <Content Include="Views\CostCat\Edit.cshtml" />
+    <Content Include="Views\Cost\Index.cshtml" />
+    <Content Include="Views\Cost\Edit.cshtml" />
+    <Content Include="Views\Shift\Edit.cshtml" />
+    <Content Include="Views\Shift\Index.cshtml" />
+    <Content Include="Views\Mode\Edit.cshtml" />
+    <Content Include="Views\Mode\Index.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\AddList.cshtml" />
+    <Content Include="Views\OtherInfo\Index.cshtml" />
+    <Content Include="Views\OtherInfo\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\RoomPrice\Index.cshtml" />
+    <Content Include="Views\RoomPrice\Edit.cshtml" />
+    <Content Include="Views\HourRoom\Index.cshtml" />
+    <Content Include="Views\HourRoom\Edit.cshtml" />
+    <Content Include="Views\PeriodRoom\Index.cshtml" />
+    <Content Include="Views\PeriodRoom\Edit.cshtml" />
+    <Content Include="Views\QTFeeSet\Index.cshtml" />
+    <Content Include="Views\LCFeeSet\Index.cshtml" />
+    <Content Include="Views\HolidaySet\Index.cshtml" />
+    <Content Include="Views\HolidaySet\Edit.cshtml" />
+    <Content Include="Views\BillSet\Index.cshtml" />
+    <Content Include="Views\GoodsUnit\Index.cshtml" />
+    <Content Include="Views\GoodsUnit\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\GuestSource\Index.cshtml" />
+    <Content Include="Views\GuestSource\Edit.cshtml" />
+    <Content Include="Views\CertificateType\Index.cshtml" />
+    <Content Include="Views\CertificateType\Edit.cshtml" />
+    <Content Include="Views\PortEntry\Index.cshtml" />
+    <Content Include="Views\PortEntry\Edit.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
+    <Content Include="Views\Param\Index.cshtml" />
+    <Content Include="Views\RoomSet\Index.cshtml" />
+    <Content Include="Views\RoomPattern\Index_old.cshtml" />
+    <Content Include="Views\PayType\Index.cshtml" />
+    <Content Include="Views\PayType\Edit.cshtml" />
+    <Content Include="Views\RoomReg\Index.cshtml" />
+    <Content Include="Views\RoomReg\_SelRoom.cshtml" />
+    <Content Include="Views\RoomReg\_SelTysm.cshtml" />
+    <Content Include="Views\MemberType\Index.cshtml" />
+    <Content Include="Views\MemberType\Edit.cshtml" />
+    <Content Include="Views\MemberTypeSale\Index.cshtml" />
+    <Content Include="Views\RechargeScheme\Index.cshtml" />
+    <Content Include="Views\RechargeScheme\Edit.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Member\_MemberRecharge.cshtml" />
+    <Content Include="Views\Member\Jfdh.cshtml" />
+    <Content Include="Views\Member\_Jftz.cshtml" />
+    <Content Include="Views\Member\_Hygs.cshtml" />
+    <Content Include="Views\Member\_Hyhk.cshtml" />
+    <Content Include="Views\Member\_Hyxk.cshtml" />
+    <Content Include="Views\Member\_Hytk.cshtml" />
+    <Content Include="Views\Member\_Hysj.cshtml" />
+    <Content Include="Views\Member\_Pwd.cshtml" />
+    <Content Include="Views\Xtlx\Index.cshtml" />
+    <Content Include="Views\Xtlx\Edit.cshtml" />
+    <Content Include="Views\Khlx\Index.cshtml" />
+    <Content Include="Views\Khlx\Edit.cshtml" />
+    <Content Include="Views\Khzt\Index.cshtml" />
+    <Content Include="Views\Khzt\Edit.cshtml" />
+    <Content Include="Views\Khhy\Index.cshtml" />
+    <Content Include="Views\Khhy\Edit.cshtml" />
+    <Content Include="Views\AgreeCompany\Index.cshtml" />
+    <Content Include="Views\AgreeCompany\Edit.cshtml" />
+    <Content Include="Views\AgreeCompany\_KhxyEdit.cshtml" />
+    <Content Include="Views\AgreeCompany\_ContactEdit.cshtml" />
+    <Content Include="Views\AgreeCompany\_FhCommisionHandler.cshtml" />
+    <Content Include="Views\AgreeCompany\_SkEdit.cshtml" />
+    <Content Include="Views\AgreeCompany\_TkEdit.cshtml" />
+    <Content Include="Views\AgreeCompany\_WjsmxSprzEdit.cshtml" />
+    <Content Include="Views\AgreeCompany\_WjsmxFyrzEdit.cshtml" />
+    <Content Include="Views\AgreeCompany\_WjsmxJs.cshtml" />
+    <Content Include="Views\AgreeCompany\_Jzskmx.cshtml" />
+    <Content Include="Views\Hch\Index.cshtml" />
+    <Content Include="Views\Hch\Edit.cshtml" />
+    <Content Include="Views\AgreeCompany\_WjsmxHch.cshtml" />
+    <Content Include="Views\AgreeCompany\_HchDetail.cshtml" />
+    <Content Include="Views\AgreeCompany\_AgreeCompSearch.cshtml" />
+    <Content Include="Views\Member\_MemberSearch.cshtml" />
+    <Content Include="Views\IconModel\Index.cshtml" />
+    <Content Include="Views\IconModel\Edit.cshtml" />
+    <Content Include="Views\Tysm\Index.cshtml" />
+    <Content Include="Views\Tysm\Edit.cshtml" />
+    <Content Include="Views\HourRoom\_HourRoomSearch.cshtml" />
+    <Content Include="Views\PeriodRoom\_PeriodRoomSearch.cshtml" />
+    <Content Include="Views\RoomReg\_Fjsq.cshtml" />
+    <Content Include="Views\User\_YxrySearch.cshtml" />
+    <Content Include="Views\RoomReg\_SelRoomForLF.cshtml" />
+    <Content Include="Views\RoomReg\_Guest.cshtml" />
+    <Content Include="Views\SwpcCat\Index.cshtml" />
+    <Content Include="Views\SwpcCat\Edit.cshtml" />
+    <Content Include="Views\Swpc\Index.cshtml" />
+    <Content Include="Views\Swpc\Edit.cshtml" />
+    <Content Include="Views\RoomRegZw\Index.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\RoomRegGoods\Index.cshtml" />
+    <Content Include="Views\RoomRegSwpc\Index.cshtml" />
+    <Content Include="Views\RoomRegQtfy\Index.cshtml" />
+    <Content Include="Views\RoomRegSk\Index.cshtml" />
+    <Content Include="Views\RoomRegTk\Index.cshtml" />
+    <Content Include="Views\RoomRegSk\_Remark.cshtml" />
+    <Content Include="Views\RoomRegSk\_KdRemark.cshtml" />
+    <Content Include="Views\RoomRegTk\_Remark.cshtml" />
+    <Content Include="Views\RoomRegTk\_KdRemark.cshtml" />
+    <Content Include="Views\RoomRegSk\_Cffy.cshtml" />
+    <Content Include="Views\RoomRegZw\_Zz.cshtml" />
+    <Content Include="Views\RoomReg\_RoomRegSel.cshtml" />
+    <Content Include="Views\RoomRegZw\_Bfjz.cshtml" />
+    <Content Include="Views\CardType\Index.cshtml" />
+    <Content Include="Views\CardType\Edit.cshtml" />
+    <Content Include="Views\Member\_MemberSearchForJz.cshtml" />
+    <Content Include="Views\RoomRegZw\_BfjzJzmx.cshtml" />
+    <Content Include="Views\AgreeCompany\_AgreeCompSearchForJz.cshtml" />
+    <Content Include="Views\RoomRegZw\_Jz.cshtml" />
+    <Content Include="Views\RoomRegHc\Index.cshtml" />
+    <Content Include="Views\RoomRegXyk\Index.cshtml" />
+    <Content Include="Views\RoomRegZw\_Remark.cshtml" />
+    <Content Include="Views\RoomRegZw\_KdRemark.cshtml" />
+    <Content Include="Views\RoomRegZw\_Cffy.cshtml" />
+    <Content Include="Views\Material\Index.cshtml" />
+    <Content Include="Views\Material\Edit.cshtml" />
+    <Content Include="Views\MaterialLease\Index.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\CommisionType\Index.cshtml" />
+    <Content Include="Views\CommisionType\Edit.cshtml" />
+    <Content Include="Views\XfCommission\Index.cshtml" />
+    <Content Include="Views\RoomRegGuestInfo\Index.cshtml" />
+    <Content Include="Views\RoomRegYh\Index.cshtml" />
+    <Content Include="Views\RoomRegJfyh\Index.cshtml" />
+    <Content Include="Views\RoomReg\_YjSet.cshtml" />
+    <Content Include="Views\AgreeCompany\_AgreeCompSearchForYj.cshtml" />
+    <Content Include="Views\GuestSearch\Index.cshtml" />
+    <Content Include="Views\RoomRegJzcxReason\Index.cshtml" />
+    <Content Include="Views\RoomReg\_SelZfForReg.cshtml" />
+    <Content Include="Views\RoomYd\Index.cshtml" />
+    <Content Include="Views\YdType\Index.cshtml" />
+    <Content Include="Views\YdType\Edit.cshtml" />
+    <Content Include="Views\RoomYd\Edit.cshtml" />
+    <Content Include="Views\RoomYd\_SelRoom.cshtml" />
+    <Content Include="Views\RoomRegGuestInfo\IndexYd.cshtml" />
+    <Content Include="Views\YdSk\Index.cshtml" />
+    <Content Include="Views\YdTk\Index.cshtml" />
+    <Content Include="Views\RoomYd\Ydzrz.cshtml" />
+    <Content Include="Views\RoomYd\_Fpfh.cshtml" />
+    <Content Include="Views\PosDefine\Edit.cshtml" />
+    <Content Include="Views\PosDefine\Index.cshtml" />
+    <Content Include="Views\PosConsume\Edit.cshtml" />
+    <Content Include="Views\PosConsume\Index.cshtml" />
+    <Content Include="Views\PosConsume\_SelHotel.cshtml" />
+    <Content Include="Views\PosSaleman\_YxrySearch.cshtml" />
+    <Content Include="Views\PosSaleman\Edit.cshtml" />
+    <Content Include="Views\PosSaleman\Index.cshtml" />
+    <Content Include="Views\PosGuestSource\Edit.cshtml" />
+    <Content Include="Views\PosGuestSource\Index.cshtml" />
+    <Content Include="Views\PosDiscount\Edit.cshtml" />
+    <Content Include="Views\PosDiscount\Index.cshtml" />
+    <Content Include="Views\PosDesk\Edit.cshtml" />
+    <Content Include="Views\PosDesk\Index.cshtml" />
+    <Content Include="Views\PosCat\Edit.cshtml" />
+    <Content Include="Views\PosCat\Index.cshtml" />
+    <Content Include="Views\PosGoodsUnit\Edit.cshtml" />
+    <Content Include="Views\PosGoodsUnit\Index.cshtml" />
+    <Content Include="Views\PosGoods\Edit.cshtml" />
+    <Content Include="Views\PosGoods\Index.cshtml" />
+    <Content Include="Views\PosGoods\Search.cshtml" />
+    <Content Include="Views\PosConsume\_SetZZ.cshtml" />
+    <Content Include="Views\PosConsume\_Zz.cshtml" />
+    <Content Include="Views\PosConsume\_RoomSel.cshtml" />
+    <Content Include="Views\Pos\InputBody.cshtml" />
+    <Content Include="Views\Pos\Input.cshtml" />
+    <Content Include="Views\Pos\Index.cshtml" />
+    <Content Include="Views\PosConsume\History.cshtml" />
+    <Content Include="Views\PosConsumeSK\_Cffy.cshtml" />
+    <Content Include="Views\PosConsumeSK\_KdRemark.cshtml" />
+    <Content Include="Views\PosConsumeSK\_Remark.cshtml" />
+    <Content Include="Views\PosConsumeSK\Index.cshtml" />
+    <Content Include="Views\PosConsumeTk\_KdRemark.cshtml" />
+    <Content Include="Views\PosConsumeTk\_Remark.cshtml" />
+    <Content Include="Views\PosConsumeTk\Index.cshtml" />
+    <Content Include="Views\PosConsume\OverReport.cshtml" />
+    <Content Include="Views\PosConsume\_Jz.cshtml" />
+    <Content Include="Views\PosInvoice\Index.cshtml" />
+    <Content Include="Views\PosConsume\print.cshtml" />
+    <Content Include="Views\PosConsume\_Yh.cshtml" />
+    <Content Include="Views\PosConsume\_Serve.cshtml" />
+    <Content Include="Views\PosConsume\OverReportView.cshtml" />
+    <Content Include="Views\PosConsume\_AddTempGoods.cshtml" />
+    <Content Include="Views\PosConsume\_DetailView.cshtml" />
+    <Content Include="Views\PosGoods\Menu.cshtml" />
+    <Content Include="Views\Pos\Log.cshtml" />
+    <Content Include="Views\PosConsume\printDetail.cshtml" />
+    <Content Include="Views\PosConsume\_EditContent.cshtml" />
+    <Content Include="Views\PosGoods\_SearchContent.cshtml" />
+    <Content Include="Views\PosConsume\_PosPrintContent.cshtml" />
+    <Content Include="Static\js\lodop\CLodop_Setup_for_Win32NT.zip" />
+    <Content Include="Views\PosConsume\_BfjzJzmx.cshtml" />
+    <Content Include="Views\PosConsume\_ShiftDetails.cshtml" />
+    <Content Include="Views\PosConsume\_SelHotel2.cshtml" />
+    <Content Include="Views\Commodity\Edit.cshtml" />
+    <Content Include="Views\Commodity\Index.cshtml" />
+    <Content Include="Views\Commodity\_InStockSearch.cshtml" />
+    <Content Include="Views\Commodity\_OutStockSearch.cshtml" />
+    <Content Include="Views\Commodity\_RefundSearch.cshtml" />
+    <Content Include="Views\GuestGoods\Edit.cshtml" />
+    <Content Include="Views\GuestGoods\Index.cshtml" />
+    <Content Include="Views\InStock\Details.cshtml" />
+    <Content Include="Views\InStock\Edit.cshtml" />
+    <Content Include="Views\InStock\Index.cshtml" />
+    <Content Include="Views\InStock\Preview.cshtml" />
+    <Content Include="Views\InStock\Stats.cshtml" />
+    <Content Include="Views\InventoryRecord\Edit.cshtml" />
+    <Content Include="Views\InventoryRecord\Index.cshtml" />
+    <Content Include="Views\InventoryRecord\Preview.cshtml" />
+    <Content Include="Views\OutStock\Details.cshtml" />
+    <Content Include="Views\OutStock\Edit.cshtml" />
+    <Content Include="Views\OutStock\Index.cshtml" />
+    <Content Include="Views\OutStock\Preview.cshtml" />
+    <Content Include="Views\OutStock\Summary.cshtml" />
+    <Content Include="Views\Refund\Edit.cshtml" />
+    <Content Include="Views\Refund\Index.cshtml" />
+    <Content Include="Views\Refund\Preview.cshtml" />
+    <Content Include="Views\StockRecord\Index.cshtml" />
+    <Content Include="Views\Stock\Index.cshtml" />
+    <Content Include="Views\TransferStock\Edit.cshtml" />
+    <Content Include="Views\TransferStock\Index.cshtml" />
+    <Content Include="Views\TransferStock\Preview.cshtml" />
+    <Content Include="Views\MeDeploy\Index.cshtml" />
+    <Content Include="Views\MeSend\Index.cshtml" />
+    <Content Include="Views\NonAccounts\del.cshtml" />
+    <Content Include="Views\NonAccounts\Edit.cshtml" />
+    <Content Include="Views\NonAccounts\Index.cshtml" />
+    <Content Include="Views\RoomPattern\Index.cshtml" />
+    <Content Include="Views\RoomPattern\AlarmClock.cshtml" />
+    <Content Include="Views\RoomPattern\MaintainRoom.cshtml" />
+    <Content Include="Views\RoomPattern\OneselfRoom.cshtml" />
+    <Content Include="Views\RoomPattern\SuoF.cshtml" />
+    <Content Include="Static\js\zTree\.gitignore" />
+    <Content Include="Static\js\zTree\css\awesomeStyle\awesome.less" />
+    <Content Include="Static\js\zTree\css\awesomeStyle\fa.less" />
+    <Content Include="Static\js\zTree\demo\cn\asyncData\getNodes.php" />
+    <Content Include="Static\js\zTree\demo\cn\asyncData\getNodesForBigData.php" />
+    <Content Include="Static\js\zTree\demo\en\asyncData\getNodes.php" />
+    <Content Include="Static\js\zTree\demo\en\asyncData\getNodesForBigData.php" />
+    <Content Include="Static\js\zTree\README.md" />
+    <Content Include="Views\RoomPattern\BatchMaintainRoom.cshtml" />
+    <Content Include="Views\RoomPattern\_SelTyly.cshtml" />
+    <Content Include="Views\RoomPattern\ChangeRoom.cshtml" />
+    <Content Include="Views\RoomPattern\GroupRoomxx.cshtml" />
+    <Content Include="Views\RoomPattern\GroupRoom.cshtml" />
+    <Content Include="Views\RoomPattern\SplitRoom.cshtml" />
+    <Content Include="Views\RoomPattern\_SelMessage.cshtml" />
+    <Content Include="Views\RoomPattern\_BatchRoom.cshtml" />
+    <Content Include="Views\Employee\_Search.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Personal.cshtml" />
+    <Content Include="Views\DisposableMaterial\Edit.cshtml" />
+    <Content Include="Views\DisposableMaterial\Index.cshtml" />
+    <Content Include="Views\DisposableMaterial\Setting.cshtml" />
+    <Content Include="Views\RoomPattern\_Material.cshtml" />
+    <Content Include="Views\RoomPattern\_Split.cshtml" />
+    <Content Include="Views\RoomPattern\Index - 复制.cshtml" />
+    <Content Include="Views\RoomRegSwpc\Index2.cshtml" />
+    <Content Include="Views\RoomRegSwpc\_SelHotel.cshtml" />
+    <Content Include="Views\RoomRegQtfy\Index2.cshtml" />
+    <Content Include="Views\RoomPattern\_Room.cshtml" />
+    <Content Include="Views\RoomRegSk\Index2.cshtml" />
+    <Content Include="Views\RoomRegTk\Index2.cshtml" />
+    <Content Include="Views\RoomPattern\_SelHotel.cshtml" />
+    <Content Include="Views\MaintainRoom\Index.cshtml" />
+    <Content Include="Views\RoomSelfuse\Index.cshtml" />
+    <Content Include="Views\RoomSelfuseReason\Index.cshtml" />
+    <Content Include="Views\RoomSelfuseReason\Selector.cshtml" />
+    <Content Include="Views\RoomRepairReason\Index.cshtml" />
+    <Content Include="Views\RoomRepairReason\Selector.cshtml" />
+    <Content Include="Views\RoomChangeReason\Index.cshtml" />
+    <Content Include="Views\RoomChangeReason\Selector.cshtml" />
+    <Content Include="Views\RoomPattern\_XZ.cshtml" />
+    <Content Include="Views\Home\_PrintTestContent.cshtml" />
+    <Content Include="Views\Home\PrintTest.cshtml" />
+    <Content Include="Views\RoomPattern\_SelMessage2.cshtml" />
+    <Content Include="Views\ChangeRoom\Index.cshtml" />
+    <Content Include="Views\RoomPattern\_SelHotel2.cshtml" />
+    <Content Include="Views\RoomPattern\_BatchMaterial.cshtml" />
+    <Content Include="Views\RoomRegSwpc\_SelHotel2.cshtml" />
+    <Content Include="Views\NightCheck\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BillCount\BillCount.csproj">
+      <Project>{1e754dec-d14a-4b10-99ce-2cb1be3620d7}</Project>
+      <Name>BillCount</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Bll\Hotel.Bll.csproj">
+      <Project>{7327867A-6300-43D5-B378-866BD945E4CA}</Project>
+      <Name>Hotel.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Dal\Hotel.Dal.csproj">
+      <Project>{06BF3759-C7F8-4A5F-85CA-CE561D8BCAFF}</Project>
+      <Name>Hotel.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotel.Model\Hotel.Model.csproj">
+      <Project>{cc83d72b-8df3-4b1d-957f-7a85142e29fb}</Project>
+      <Name>Hotel.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MC.ORM\MC.ORM.csproj">
+      <Project>{D12C78CD-EDBB-46E4-A15E-6203BA3FE8E6}</Project>
+      <Name>MC.ORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NIU.Common.BLL\NIU.Common.BLL.csproj">
+      <Project>{6c1fd4f7-47c3-461f-98eb-17a9e71af34b}</Project>
+      <Name>NIU.Common.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NIU.Core\NIU.Core.csproj">
+      <Project>{97A8F9FE-CC4E-4B06-BEBB-1B4CFCF57AED}</Project>
+      <Name>NIU.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NIU.Forum.Common\NIU.Forum.Common.csproj">
+      <Project>{1C13F31D-31D8-47EA-B45F-197C3BFC0FA6}</Project>
+      <Name>NIU.Forum.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>33899</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:33899/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

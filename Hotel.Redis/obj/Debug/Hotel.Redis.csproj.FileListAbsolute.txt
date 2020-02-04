@@ -1,0 +1,12 @@
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\bin\Debug\Hotel.Redis.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\bin\Debug\Hotel.Redis.pdb
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.dll
+C:\Users\admin\Desktop\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.pdb
+D:\接单的项目\hotel\Hotel0903\Hotel.Redis\bin\Debug\Hotel.Redis.dll
+D:\接单的项目\hotel\Hotel0903\Hotel.Redis\bin\Debug\Hotel.Redis.pdb
+D:\接单的项目\hotel\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.csprojAssemblyReference.cache
+D:\接单的项目\hotel\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.csproj.CoreCompileInputs.cache
+D:\接单的项目\hotel\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.dll
+D:\接单的项目\hotel\Hotel0903\Hotel.Redis\obj\Debug\Hotel.Redis.pdb
